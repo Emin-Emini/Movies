@@ -252,11 +252,11 @@
                                     <constraint firstAttribute="height" constant="30" id="Ids-JV-dGT"/>
                                 </constraints>
                                 <segments>
-                                    <segment title="A"/>
+                                    <segment title="Lucasfilm"/>
                                     <segment title="Disney"/>
                                     <segment title="Pixar"/>
-                                    <segment title="Y"/>
-                                    <segment title="Z"/>
+                                    <segment title="Paramount"/>
+                                    <segment title="DMG"/>
                                 </segments>
                                 <color key="selectedSegmentTintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
@@ -546,7 +546,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="grid" width="26" height="26"/>
+        <image name="grid" width="36" height="36"/>
         <image name="movie100grey" width="33.333332061767578" height="33.333332061767578"/>
     </resources>
 </document>

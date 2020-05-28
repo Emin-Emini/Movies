@@ -87,7 +87,7 @@ class MoviesAPIService {
     
     class func getMoviesListURL(moviesType: String , page:Int) -> String {
         if isShowingCompanies {
-            return appendAPIKeyToURL2(url:"\(Constants.BASE_URL)discover/movie" , appendix: "page=\(page)&\(moviesType)=\(selectedCompany)", isOneQueryParam: false)
+            return appendAPIKeyToURL2(url:"\(Constants.BASE_URL)discover/movie" , appendix: "page=1&\(moviesType)=\(selectedCompany)", isOneQueryParam: false)
         } else {
             return appendAPIKeyToURL(url:"\(Constants.BASE_URL)movie/\(moviesType)?page=\(page)" , isOneQueryParam: false)
         }
