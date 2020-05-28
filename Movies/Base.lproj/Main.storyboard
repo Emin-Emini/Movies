@@ -247,16 +247,18 @@
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ohb-za-PJx">
                                 <rect key="frame" x="0.0" y="88" width="414" height="31"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Ids-JV-dGT"/>
                                 </constraints>
                                 <segments>
-                                    <segment title="First"/>
+                                    <segment title="A"/>
                                     <segment title="Disney"/>
                                     <segment title="Pixar"/>
                                     <segment title="Y"/>
                                     <segment title="Z"/>
                                 </segments>
+                                <color key="selectedSegmentTintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="changeCompany:" destination="Ihf-oU-WfC" eventType="valueChanged" id="97c-OE-Hv3"/>
                                 </connections>
@@ -376,7 +378,7 @@
                                 </prototypes>
                             </tableView>
                             <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Zdd-1k-YGJ">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="118" width="414" height="695"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="T0R-hJ-lJV">
                                     <size key="itemSize" width="146" height="247"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -456,7 +458,7 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
                             <constraint firstItem="5IP-LY-B9n" firstAttribute="top" secondItem="Ohb-za-PJx" secondAttribute="bottom" id="2vs-Ao-2n5"/>
-                            <constraint firstItem="Zdd-1k-YGJ" firstAttribute="top" secondItem="pZo-2R-6HG" secondAttribute="top" id="EY3-yo-mdB"/>
+                            <constraint firstItem="Zdd-1k-YGJ" firstAttribute="top" secondItem="Ohb-za-PJx" secondAttribute="bottom" id="Ew0-oj-axX"/>
                             <constraint firstItem="pZo-2R-6HG" firstAttribute="trailing" secondItem="Y7h-mw-UoZ" secondAttribute="trailing" id="GVc-Fb-0fz"/>
                             <constraint firstItem="pZo-2R-6HG" firstAttribute="trailing" secondItem="Ohb-za-PJx" secondAttribute="trailing" id="Gjb-SD-a7m"/>
                             <constraint firstItem="Ohb-za-PJx" firstAttribute="leading" secondItem="pZo-2R-6HG" secondAttribute="leading" id="Hxa-Sm-Eu2"/>
@@ -488,6 +490,9 @@
                         <outlet property="searchBar" destination="8HN-3N-jcz" id="eqU-Cz-HPk"/>
                         <outlet property="tableView" destination="Y7h-mw-UoZ" id="V9X-36-BFa"/>
                         <outlet property="toggleViewSwitch" destination="4J3-Lw-Klz" id="X3f-2o-BK3"/>
+                        <outlet property="topErrorConstraint" destination="2vs-Ao-2n5" id="rkg-0v-OvK"/>
+                        <outlet property="topMovieCollectionConstraint" destination="Ew0-oj-axX" id="m35-QY-shl"/>
+                        <outlet property="topMovieListConstraint" destination="chC-HA-JDZ" id="DYM-ML-GJh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mEu-hq-c6N" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -541,7 +546,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="grid" width="128" height="128"/>
-        <image name="movie100grey" width="128" height="128"/>
+        <image name="grid" width="26" height="26"/>
+        <image name="movie100grey" width="33.333332061767578" height="33.333332061767578"/>
     </resources>
 </document>

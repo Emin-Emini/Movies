@@ -21,6 +21,10 @@ class MovieListViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var connectionErrorView: UIView!
     
+    @IBOutlet weak var topErrorConstraint: NSLayoutConstraint!
+    @IBOutlet weak var topMovieListConstraint: NSLayoutConstraint!
+    @IBOutlet weak var topMovieCollectionConstraint: NSLayoutConstraint!
+    
     var isDataLoading = false
     var tableViewLoadingMoreView:InfiniteScrollActivityView?
     var collectionViewLoadingMoreView:InfiniteScrollActivityView?
@@ -66,12 +70,23 @@ class MovieListViewController: UIViewController, UISearchBarDelegate {
         super.viewDidAppear(animated)
         if isShowingCompanies {
             companiesSegmentedControl.isHidden = false
+            topErrorConstraint.constant = 0
+            topMovieListConstraint.constant = 0
+            topMovieCollectionConstraint.constant = 0
         } else {
             companiesSegmentedControl.isHidden = true
+            topErrorConstraint.constant = -30
+            topMovieListConstraint.constant = -30
+            topMovieCollectionConstraint.constant = -30
         }
     }
     
     func setUpViews() {
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
+        let titleTextAttributesSelected = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        companiesSegmentedControl.setTitleTextAttributes(titleTextAttributes, for: .normal)
+        companiesSegmentedControl.setTitleTextAttributes(titleTextAttributesSelected, for: .selected)
+        
         tableViewRefreshControl = UIRefreshControl()
         collectionViewRefreshControl = UIRefreshControl()
         searchBar.delegate = self
