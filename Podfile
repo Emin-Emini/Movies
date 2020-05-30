@@ -10,4 +10,5 @@ target 'Movies' do
   pod 'Alamofire'
   pod 'AlamofireImage'
   pod 'MBProgressHUD'
+  pod 'ScrollableSegmentedControl', '~> 1.5.0'
 end

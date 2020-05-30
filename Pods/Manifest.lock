@@ -3,12 +3,14 @@ PODS:
   - AlamofireImage (3.6.0):
     - Alamofire (~> 4.9)
   - MBProgressHUD (1.2.0)
+  - ScrollableSegmentedControl (1.5.0)
   - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
   - Alamofire
   - AlamofireImage
   - MBProgressHUD
+  - ScrollableSegmentedControl (~> 1.5.0)
   - SwiftyJSON
 
 SPEC REPOS:
@@ -16,14 +18,16 @@ SPEC REPOS:
     - Alamofire
     - AlamofireImage
     - MBProgressHUD
+    - ScrollableSegmentedControl
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   AlamofireImage: be9963c6582d68b39e89191f64c82a7d7bf40fdd
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  ScrollableSegmentedControl: 2e64bbe8968a7fcd8aae5014434481464fcdfe60
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 44392aea58a6f1f31fe67e40b34e3cf2ac0f37d7
+PODFILE CHECKSUM: d01db4cafed60871d8474b37e44917c58397c165
 
 COCOAPODS: 1.9.1

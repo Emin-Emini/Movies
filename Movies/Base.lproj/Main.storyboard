@@ -245,26 +245,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ohb-za-PJx">
-                                <rect key="frame" x="0.0" y="88" width="414" height="31"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Ids-JV-dGT"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="Lucasfilm"/>
-                                    <segment title="Disney"/>
-                                    <segment title="Pixar"/>
-                                    <segment title="Paramount"/>
-                                    <segment title="DMG"/>
-                                </segments>
-                                <color key="selectedSegmentTintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <action selector="changeCompany:" destination="Ihf-oU-WfC" eventType="valueChanged" id="97c-OE-Hv3"/>
-                                </connections>
-                            </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5IP-LY-B9n">
-                                <rect key="frame" x="0.0" y="118" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="128" width="414" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connection Error!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Kd-xu-zOs">
                                         <rect key="frame" x="153.5" y="14" width="107" height="16"/>
@@ -282,7 +264,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Y7h-mw-UoZ">
-                                <rect key="frame" x="0.0" y="118" width="414" height="695"/>
+                                <rect key="frame" x="0.0" y="128" width="414" height="685"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <color key="separatorColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search" id="8HN-3N-jcz">
@@ -378,7 +360,7 @@
                                 </prototypes>
                             </tableView>
                             <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Zdd-1k-YGJ">
-                                <rect key="frame" x="0.0" y="118" width="414" height="695"/>
+                                <rect key="frame" x="0.0" y="128" width="414" height="685"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="T0R-hJ-lJV">
                                     <size key="itemSize" width="146" height="247"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -454,23 +436,29 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZsI-nH-evV" customClass="ScrollableSegmentedControl" customModule="ScrollableSegmentedControl">
+                                <rect key="frame" x="0.0" y="88" width="414" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="PPt-g7-Yx3"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
-                            <constraint firstItem="5IP-LY-B9n" firstAttribute="top" secondItem="Ohb-za-PJx" secondAttribute="bottom" id="2vs-Ao-2n5"/>
-                            <constraint firstItem="Zdd-1k-YGJ" firstAttribute="top" secondItem="Ohb-za-PJx" secondAttribute="bottom" id="Ew0-oj-axX"/>
                             <constraint firstItem="pZo-2R-6HG" firstAttribute="trailing" secondItem="Y7h-mw-UoZ" secondAttribute="trailing" id="GVc-Fb-0fz"/>
-                            <constraint firstItem="pZo-2R-6HG" firstAttribute="trailing" secondItem="Ohb-za-PJx" secondAttribute="trailing" id="Gjb-SD-a7m"/>
-                            <constraint firstItem="Ohb-za-PJx" firstAttribute="leading" secondItem="pZo-2R-6HG" secondAttribute="leading" id="Hxa-Sm-Eu2"/>
                             <constraint firstItem="5IP-LY-B9n" firstAttribute="trailing" secondItem="pZo-2R-6HG" secondAttribute="trailing" id="KIQ-Ys-Y9e"/>
                             <constraint firstItem="Zdd-1k-YGJ" firstAttribute="leading" secondItem="pZo-2R-6HG" secondAttribute="leading" id="Lh4-6K-56P"/>
+                            <constraint firstItem="Zdd-1k-YGJ" firstAttribute="top" secondItem="ZsI-nH-evV" secondAttribute="bottom" id="MPh-ee-6Q6"/>
                             <constraint firstItem="5IP-LY-B9n" firstAttribute="leading" secondItem="pZo-2R-6HG" secondAttribute="leading" id="PQR-wr-BSM"/>
+                            <constraint firstItem="5IP-LY-B9n" firstAttribute="top" secondItem="ZsI-nH-evV" secondAttribute="bottom" id="Phg-wf-TTM"/>
                             <constraint firstItem="pZo-2R-6HG" firstAttribute="bottom" secondItem="Y7h-mw-UoZ" secondAttribute="bottom" id="RQa-KQ-B2s"/>
                             <constraint firstItem="Y7h-mw-UoZ" firstAttribute="leading" secondItem="pZo-2R-6HG" secondAttribute="leading" id="YfT-Xm-SDW"/>
-                            <constraint firstItem="Y7h-mw-UoZ" firstAttribute="top" secondItem="Ohb-za-PJx" secondAttribute="bottom" id="chC-HA-JDZ"/>
+                            <constraint firstItem="ZsI-nH-evV" firstAttribute="leading" secondItem="pZo-2R-6HG" secondAttribute="leading" id="bgK-QI-H8B"/>
                             <constraint firstItem="Zdd-1k-YGJ" firstAttribute="bottom" secondItem="pZo-2R-6HG" secondAttribute="bottom" id="d7g-CL-2pi"/>
-                            <constraint firstItem="Ohb-za-PJx" firstAttribute="top" secondItem="pZo-2R-6HG" secondAttribute="top" id="ees-nY-paZ"/>
-                            <constraint firstItem="Ohb-za-PJx" firstAttribute="centerX" secondItem="Acy-3Q-Mbw" secondAttribute="centerX" id="hCi-Xs-sUe"/>
+                            <constraint firstItem="ZsI-nH-evV" firstAttribute="top" secondItem="pZo-2R-6HG" secondAttribute="top" id="eWF-8g-reb"/>
+                            <constraint firstItem="ZsI-nH-evV" firstAttribute="trailing" secondItem="pZo-2R-6HG" secondAttribute="trailing" id="j9i-AD-BgZ"/>
+                            <constraint firstItem="Y7h-mw-UoZ" firstAttribute="top" secondItem="ZsI-nH-evV" secondAttribute="bottom" id="o0l-lB-TGi"/>
                             <constraint firstItem="pZo-2R-6HG" firstAttribute="trailing" secondItem="Zdd-1k-YGJ" secondAttribute="trailing" id="yD2-f0-gf8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pZo-2R-6HG"/>
@@ -485,19 +473,19 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Zdd-1k-YGJ" id="k4C-Xa-xDE"/>
-                        <outlet property="companiesSegmentedControl" destination="Ohb-za-PJx" id="y3m-9r-Lbb"/>
+                        <outlet property="companiesSegmentedControll" destination="ZsI-nH-evV" id="Dmh-2M-KPI"/>
                         <outlet property="connectionErrorView" destination="5IP-LY-B9n" id="K42-ps-Bh2"/>
                         <outlet property="searchBar" destination="8HN-3N-jcz" id="eqU-Cz-HPk"/>
                         <outlet property="tableView" destination="Y7h-mw-UoZ" id="V9X-36-BFa"/>
                         <outlet property="toggleViewSwitch" destination="4J3-Lw-Klz" id="X3f-2o-BK3"/>
-                        <outlet property="topErrorConstraint" destination="2vs-Ao-2n5" id="rkg-0v-OvK"/>
-                        <outlet property="topMovieCollectionConstraint" destination="Ew0-oj-axX" id="m35-QY-shl"/>
-                        <outlet property="topMovieListConstraint" destination="chC-HA-JDZ" id="DYM-ML-GJh"/>
+                        <outlet property="topErrorConstraint" destination="Phg-wf-TTM" id="gi5-Ov-Obe"/>
+                        <outlet property="topMovieCollectionConstraint" destination="MPh-ee-6Q6" id="WrY-hs-GPa"/>
+                        <outlet property="topMovieListConstraint" destination="o0l-lB-TGi" id="bXb-U5-cH5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mEu-hq-c6N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-32" y="546"/>
+            <point key="canvasLocation" x="-33.333333333333336" y="545.75892857142856"/>
         </scene>
         <!--Movie-->
         <scene sceneID="JuN-pQ-0o2">

@@ -87,7 +87,12 @@ class MoviesAPIService {
     
     class func getMoviesListURL(moviesType: String , page:Int) -> String {
         if isShowingCompanies {
-            return appendAPIKeyToURL2(url:"\(Constants.BASE_URL)discover/movie" , appendix: "page=1&\(moviesType)=\(selectedCompany)", isOneQueryParam: false)
+            let currentDate = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            let dateResult = formatter.string(from: currentDate)
+            
+            return appendAPIKeyToURL2(url:"\(Constants.BASE_URL)discover/movie" , appendix: "page=1&release_date.lte=\(dateResult)&\(moviesType)=\(selectedCompany)", isOneQueryParam: false)
         } else {
             return appendAPIKeyToURL(url:"\(Constants.BASE_URL)movie/\(moviesType)?page=\(page)" , isOneQueryParam: false)
         }
@@ -102,8 +107,8 @@ class MoviesAPIService {
     
     class func appendAPIKeyToURL2(url: String, appendix: String, isOneQueryParam: Bool) -> String {
         let separator = isOneQueryParam ? "?" : "&"
-        print("\(url)\(separator)api_key=\(Constants.API_KEY)\(separator)\(appendix)")
-        return "\(url)?api_key=\(Constants.API_KEY)\(separator)\(appendix)"
+        print("\(url)?api_key=\(Constants.API_KEY)\(separator)sort_by=primary_release_date.desc\(separator)\(appendix)")
+        return "\(url)?api_key=\(Constants.API_KEY)\(separator)sort_by=primary_release_date.desc\(separator)\(appendix)"
     }
 }
 

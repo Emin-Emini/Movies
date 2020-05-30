@@ -9,12 +9,13 @@
 import UIKit
 import AlamofireImage
 import MBProgressHUD
+import ScrollableSegmentedControl
 
 var isShowingCompanies = false
 
 class MovieListViewController: UIViewController, UISearchBarDelegate {
 
-    @IBOutlet weak var companiesSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var companiesSegmentedControll: ScrollableSegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var toggleViewSwitch: UIBarButtonItem!
@@ -60,32 +61,37 @@ class MovieListViewController: UIViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        loadSegmentControll()
+        
         setUpViews()
         setUpCollectionView()
         setUpTableView()
         loadMovies()
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if isShowingCompanies {
-            companiesSegmentedControl.isHidden = false
+            companiesSegmentedControll.isHidden = false
             topErrorConstraint.constant = 0
             topMovieListConstraint.constant = 0
             topMovieCollectionConstraint.constant = 0
         } else {
-            companiesSegmentedControl.isHidden = true
-            topErrorConstraint.constant = -30
-            topMovieListConstraint.constant = -30
-            topMovieCollectionConstraint.constant = -30
+            companiesSegmentedControll.isHidden = true
+            topErrorConstraint.constant = -40
+            topMovieListConstraint.constant = -40
+            topMovieCollectionConstraint.constant = -40
         }
     }
     
     func setUpViews() {
         let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
         let titleTextAttributesSelected = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        companiesSegmentedControl.setTitleTextAttributes(titleTextAttributes, for: .normal)
-        companiesSegmentedControl.setTitleTextAttributes(titleTextAttributesSelected, for: .selected)
+        //companiesSegmentedControl.setTitleTextAttributes(titleTextAttributes, for: .normal)
+        //companiesSegmentedControl.setTitleTextAttributes(titleTextAttributesSelected, for: .selected)
         
         tableViewRefreshControl = UIRefreshControl()
         collectionViewRefreshControl = UIRefreshControl()
@@ -107,7 +113,7 @@ class MovieListViewController: UIViewController, UISearchBarDelegate {
             tabItem.image = UIImage(named: "popular")
             isShowingCompanies = false
         case .companies:
-            title = "Companies"
+            title = "Latest Released"
             tabItem.title = title
             tabItem.image = UIImage(named: "companies")
             isShowingCompanies = false
@@ -131,18 +137,52 @@ class MovieListViewController: UIViewController, UISearchBarDelegate {
         return false
     }
     
- 
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func changeCompany(_ sender: UISegmentedControl) {
+    func loadSegmentControll() {
+        
+        companiesSegmentedControll.segmentStyle = .textOnly
+        companiesSegmentedControll.insertSegment(withTitle: "Lucasfilm", image: #imageLiteral(resourceName: "popular"), at: 0)
+        companiesSegmentedControll.insertSegment(withTitle: "Disney", image: #imageLiteral(resourceName: "popular"), at: 1)
+        companiesSegmentedControll.insertSegment(withTitle: "Pixar", image: #imageLiteral(resourceName: "popular"), at: 2)
+        companiesSegmentedControll.insertSegment(withTitle: "Paramount Pictures", image: #imageLiteral(resourceName: "popular"), at: 3)
+        companiesSegmentedControll.insertSegment(withTitle: "DMG", image: #imageLiteral(resourceName: "popular"), at: 4)
+        companiesSegmentedControll.insertSegment(withTitle: "DreamwWrks", image: #imageLiteral(resourceName: "popular"), at: 5)
+            
+        
+        companiesSegmentedControll.underlineSelected = true
+        companiesSegmentedControll.selectedSegmentIndex = 0
+            
+        companiesSegmentedControll.addTarget(self, action: #selector(MovieListViewController.segmentSelected(sender:)), for: .valueChanged)
+
+        // change some colors
+        companiesSegmentedControll.segmentContentColor = UIColor.white
+        companiesSegmentedControll.selectedSegmentContentColor = UIColor.white
+        companiesSegmentedControll.backgroundColor = UIColor.black
+        
+        // Turn off all segments been fixed/equal width.
+        // The width of each segment would be based on the text length and font size.
+        companiesSegmentedControll.fixedSegmentWidth = false
+        
+        let largerRedTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14), NSAttributedString.Key.foregroundColor: UIColor.lightGray]
+        let largerRedTextHighlightAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14), NSAttributedString.Key.foregroundColor: UIColor.white]
+        let largerRedTextSelectAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14), NSAttributedString.Key.foregroundColor: UIColor.white]
+
+        companiesSegmentedControll.setTitleTextAttributes(largerRedTextAttributes, for: .normal)
+        companiesSegmentedControll.setTitleTextAttributes(largerRedTextHighlightAttributes, for: .highlighted)
+        companiesSegmentedControll.setTitleTextAttributes(largerRedTextSelectAttributes, for: .selected)
+    }
+    
+    @objc func segmentSelected(sender:ScrollableSegmentedControl) {
+        print("Segment at index \(sender.selectedSegmentIndex)  selected")
         moviesList.removeAll()
         tableView.reloadData()
         collectionView.reloadData()
-        switch companiesSegmentedControl.selectedSegmentIndex {
+        switch sender.selectedSegmentIndex {
         case 0:
             selectedCompany = 1
             whenCompanyIsChanged()
@@ -158,12 +198,12 @@ class MovieListViewController: UIViewController, UISearchBarDelegate {
         case 4:
             selectedCompany = 5
             whenCompanyIsChanged()
+        case 5:
+            selectedCompany = 7
+            whenCompanyIsChanged()
         default:
             break;
         }
-        
-        self.viewDidLoad()
-        
     }
     
     func whenCompanyIsChanged() {
