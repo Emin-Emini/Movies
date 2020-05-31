@@ -1,6 +1,6 @@
 # Movies
 
-Open [this link](https://github.com/EminRma/Movies/tree/master) to check the project on Github. The project is private so I have to invite you. Please contact me on [mailto](e20191479@novaims.unl.pt)
+Open [this link](https://github.com/EminRma/Movies/tree/master) to check the project on Github. The project is private so I have to invite you. Please contact me on [e20191479@novaims.unl.pt](e20191479@novaims.unl.pt)
 
 ## Project Specification, Requirements and Storyboards for Individual Work
 
