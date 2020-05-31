@@ -1,4 +1,7 @@
 # Movies
+
+Open [a link](https://github.com/EminRma/Movies/tree/master) to check the project on Github. The project is private so I have to invite you. Please contact me on [mailto](e20191479@novaims.unl.pt)
+
 ## Project Specification, Requirements and Storyboards for Individual Work
 
 To complete the course requirements for *Mobile Apps Development*, as the individual work, I have selected the **10th application** from proposals, to display latest movies released separated by companies.
